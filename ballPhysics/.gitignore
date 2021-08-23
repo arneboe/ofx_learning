@@ -69,3 +69,4 @@ DerivedData
 *.db-shm
 *.db-wal
 *.directory
+/bin/
