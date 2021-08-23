@@ -3,10 +3,7 @@
 #include "ofMain.h"
 #include "ofxBox2d.h"
 #include <vector>
-
-using Circle = ofxBox2dCircle;
-using CirclePtr = std::shared_ptr<Circle>;
-
+#include "Cat.hpp"
 
 
 class App : public ofBaseApp
@@ -34,11 +31,6 @@ public:
 private:
 
     ofxBox2d b2dWorld;
-    //need to use pointers because b2d stuff breaks on copy/move...
-    std::vector<CirclePtr> circles;
-    std::vector<double> rots;
-    ofImage catImg;
-    ofSoundPlayer miau;
-    const double mouseRadius = 15.0;
+    std::vector<Cat> cats;
     
 };
