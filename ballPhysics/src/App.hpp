@@ -6,6 +6,7 @@
 #include "Cat.hpp"
 
 
+
 class App : public ofBaseApp
 {
 public:
@@ -27,10 +28,13 @@ public:
     void windowResized(int w, int h) override;
     void dragEvent(ofDragInfo dragInfo) override;
     void gotMessage(ofMessage msg) override;
+    void contactStart(ofxBox2dContactArgs& e);
 
 private:
 
     ofxBox2d b2dWorld;
+    ofxBox2dCircle mouse;
+    b2MouseJoint* mouseJoint; //TODO how to discard this?
     std::vector<Cat> cats;
     
 };

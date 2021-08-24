@@ -12,10 +12,17 @@ class Cat
 public:
     Cat(double x, double y, const std::string& file, b2World* world);
 
-    void update(double mouseX, double mouseY, double radius);
+    void update();
     void draw();
 
+    const b2Body* getBody() const;
+
+    //tell the cat that it it something
+    void hit();
+
 private:
+
+
     ofImage catImg;
     ofSoundPlayer miau;
     CirclePtr collision;

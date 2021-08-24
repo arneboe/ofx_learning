@@ -12,15 +12,25 @@ Cat::Cat(double x, double y, const std::string& file, b2World* world)
     miau.setSpeed(1.25);
 }
 
-void Cat::update(double mouseX, double mouseY, double radius)
+void Cat::update()
 {
-    const ofVec2f mouse(mouseX, mouseY);
-    const ofVec2f dist = collision->getPosition() - mouse - radius;
-    if(dist.length() < collision->getRadius() + radius)
-    {
-        collision->addImpulseForce(ofVec2f{0, 0}, dist);
-        miau.play();
-    }
+    // const ofVec2f mouse(mouseX, mouseY);
+    // const ofVec2f dist = collision->getPosition() - mouse - radius;
+    // if(dist.length() < collision->getRadius() + radius)
+    // {
+    //     collision->addImpulseForce(ofVec2f{0, 0}, dist);
+    //     miau.play();
+    // }
+}
+
+const b2Body* Cat::getBody() const
+{
+    return collision->body;
+}
+
+void Cat::hit()
+{
+    miau.play();
 }
 
 void Cat::draw()
